@@ -79,7 +79,7 @@ vik-chatbot/
 
 | Concern        | Choice                                         |
 |----------------|------------------------------------------------|
-| Language       | Python 3.12+                                   |
+| Language       | Python 3.11+                                   |
 | API            | FastAPI (async, SSE streaming)                 |
 | LLM            | Google Gemini: `gemini-2.5-flash` for chat     |
 | Embeddings     | Google Gemini: `gemini-embedding-001`          |
@@ -93,8 +93,14 @@ vik-chatbot/
 
 _TODO: fill in once the first implementation lands._
 
+```bash
+uv venv && source .venv/bin/activate
+uv pip install -e ".[dev,ui]"        # extras: dev, ui, tracing, eval
+cp .env.example .env                 # then set GEMINI_API_KEY
+```
+
 1. Start Postgres with pgvector (`deploy/`).
-2. Copy `.env.example` to `.env` and set `GEMINI_API_KEY` and `DATABASE_URL`.
+2. Check `DATABASE_URL` in `.env` matches the database.
 3. Apply migrations (`migrations/`).
 4. Put source documents in `data/` and run the ingestion CLI.
 5. Start the API, then the UI.
