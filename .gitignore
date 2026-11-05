@@ -205,3 +205,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# --- VIK ChatBot ---
+# Raw source documents (keep only the README / source list)
+data/*
+!data/README.md
+!data/SOURCES.md
+# Generated eval reports
+evals/reports/
